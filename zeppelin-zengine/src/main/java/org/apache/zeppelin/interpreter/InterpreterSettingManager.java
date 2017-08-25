@@ -840,9 +840,7 @@ public class InterpreterSettingManager {
   public String getInterpreterSessionKey(String user, String noteId, InterpreterSetting setting) {
     InterpreterOption option = setting.getOption();
     String key;
-    if (option.isExistingProcess()) {
-      key = Constants.EXISTING_PROCESS;
-    } else if (option.perNoteScoped() && option.perUserScoped()) {
+    if (option.perNoteScoped() && option.perUserScoped()) {
       key = user + ":" + noteId;
     } else if (option.perUserScoped()) {
       key = user;
