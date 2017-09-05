@@ -320,9 +320,7 @@ public class InterpreterSetting {
 
   private String getInterpreterGroupId(String user, String noteId) {
     String key;
-    if (option.isExistingProcess) {
-      key = Constants.EXISTING_PROCESS;
-    } else if (getOption().isProcess()) {
+    if (getOption().isProcess()) {
       key = (option.perUserIsolated() ? user : "") + ":" + (option.perNoteIsolated() ? noteId : "");
     } else {
       key = SHARED_PROCESS;
