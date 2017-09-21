@@ -196,6 +196,13 @@ Staring from 0.6.1 SparkSession is available as variable `spark` when you are us
 
 <a name="dependencyloading"> </a>
 
+### How to pass property to SparkConf
+
+There're 2 kinds of properties that would be passed to SparkConf
+
+ * Standard spark property (prefix with `spark.`). e.g. `spark.executor.memory` will be passed to `SparkConf`
+ * Non-standard spark property (prefix with `zeppelin.spark.`).  e.g. `zeppelin.spark.property_1`, `property_1` will be passed to `SparkConf`
+
 ## Dependency Management
 There are two ways to load external libraries in Spark interpreter. First is using interpreter setting menu and second is loading Spark properties.
 
@@ -417,7 +424,7 @@ It creates separated SparkContext per each notebook in `isolated` mode.
 ## IPython support
 
 By default, zeppelin would use IPython in `pyspark` when IPython is available, Otherwise it would fall back to the original PySpark implementation.
-If you don't want to use IPython, then you can set `zeppelin.spark.useIPython` as `false` in interpreter setting. For the IPython features, you can refer doc
+If you don't want to use IPython, then you can set `zeppelin.pyspark.useIPython` as `false` in interpreter setting. For the IPython features, you can refer doc
 [Python Interpreter](python.html)
 
 

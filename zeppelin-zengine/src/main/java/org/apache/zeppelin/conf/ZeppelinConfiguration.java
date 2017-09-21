@@ -476,6 +476,10 @@ public class ZeppelinConfiguration extends XMLConfiguration {
     }
   }
 
+  public String getCallbackPortRange() {
+    return getString(ConfVars.ZEPPELIN_INTERPRETER_CALLBACK_PORTRANGE);
+  }
+
   public boolean isWindowsPath(String path){
     return path.matches("^[A-Za-z]:\\\\.*");
   }
@@ -489,7 +493,7 @@ public class ZeppelinConfiguration extends XMLConfiguration {
   }
 
   public String getConfDir() {
-    return getString(ConfVars.ZEPPELIN_CONF_DIR);
+    return getRelativeDir(ConfVars.ZEPPELIN_CONF_DIR);
   }
 
   public List<String> getAllowedOrigins()
@@ -684,7 +688,9 @@ public class ZeppelinConfiguration extends XMLConfiguration {
     ZEPPELIN_SERVER_X_XSS_PROTECTION("zeppelin.server.xxss.protection", "1"),
 
     ZEPPELIN_HDFS_KEYTAB("zeppelin.hdfs.keytab", ""),
-    ZEPPELIN_HDFS_PRINCIPAL("zeppelin.hdfs.principal", "");
+    ZEPPELIN_HDFS_PRINCIPAL("zeppelin.hdfs.principal", ""),
+
+    ZEPPELIN_INTERPRETER_CALLBACK_PORTRANGE("zeppelin.interpreter.callback.portRange", ":");
 
     private String varName;
     @SuppressWarnings("rawtypes")
